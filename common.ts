@@ -1,16 +1,18 @@
-import axios from "axios";
+import axios from "./axiosInterceptor";
+import {
+  AnswerResponse,
+  TaskResponse,
+  TokenResponse,
+} from "./interfaces/Lesson1";
 
 export default class Common {
-  static async getToken(taskname: string) {
+  static async getToken(taskname: string): Promise<string> {
     const response = await axios.post<TokenResponse>(
       `${process.env.AI_DEVS_API_BASE_URL}/token/${taskname}`,
       {
         apikey: process.env.AI_DEVS_API_KEY,
       }
     );
-
-    console.log("Token response status is: ", response.status);
-    console.log("Token response is: ", response.data);
 
     return response.data.token === undefined ? "" : response.data.token;
   }
@@ -19,9 +21,6 @@ export default class Common {
     const response = await axios.get<TaskResponse>(
       `${process.env.AI_DEVS_API_BASE_URL}/task/${token}`
     );
-
-    console.log("Task status is: ", response.status);
-    console.log("Task answer response is: ", response.data);
 
     return response.data;
   }
@@ -36,8 +35,6 @@ export default class Common {
         answer: answerText,
       }
     );
-    console.log("Setting answer status is: ", response.status);
-    console.log("Setting answer response is: ", response.data);
     return response.data;
   }
 }
