@@ -25,6 +25,28 @@ export default class Common {
     return response.data;
   }
 
+  static async postTask(
+    token: string,
+    question: string
+  ): Promise<TaskResponse> {
+    const form = new FormData();
+    form.append("question", question);
+
+    const response = await axios.post<TaskResponse>(
+      `${process.env.AI_DEVS_API_BASE_URL}/task/${token}`,
+      {
+        question: question,
+      },
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    return { ...response.data, question };
+  }
+
   static async sendAnswer(
     token: string,
     answerText: any

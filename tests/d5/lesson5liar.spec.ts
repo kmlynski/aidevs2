@@ -12,34 +12,33 @@ const openAiAPI = async (task) => {
     apiKey: process.env.OPENAI_KEY,
   });
 
+  let content = `Q: Does the response \"${task.answer}\" answers the question ${task.question} `;
+  console.warn(content);
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",
-        content: `answer truthfully, as briefly as possible. ###context: Headings of a blog: ${JSON.stringify(
-          task.blog
-        )}`,
+        content: `You can only answer with "YES" if sentence is true or "NO" if it's false. Do not use any dots. You can only write with capital letters. `,
       },
       {
         role: "user",
-        content:
-          'Return headings from context in a format ["heading1","heading2","heading3","heading4"]. Concat 1 sentence to every heading',
+        content: content,
       },
     ],
   });
-
-  console.log(response.choices[0].message.content);
+  console.warn(`AI: ${response.choices[0].message.content}`);
   return response.choices[0].message.content;
 };
 
-test.skip("Lesson 4X, blogger - alternative way ", async ({}) => {
-  const token: TokenResponse["token"] = await Common.getToken("blogger");
-  const task: TaskResponse = await Common.getTask(token);
+test("Lesson 5, liar", async ({}) => {
+  const token: TokenResponse["token"] = await Common.getToken("liar");
+  const task: TaskResponse = await Common.postTask(
+    token,
+    "What is capital of France?"
+  );
   const answer = await openAiAPI(task);
-
   const result: AnswerResponse = await Common.sendAnswer(token, answer);
-
   expect(result.code).toBe(0);
   expect(result.msg).toBe("OK");
   expect(result.note).toBe("CORRECT");
