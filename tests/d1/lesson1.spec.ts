@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import Common from "../api/common";
+import Common from "../../api/common";
 import {
   AnswerResponse,
   TaskResponse,
   TokenResponse,
-} from "../interfaces/Lesson1";
+} from "../../interfaces/Lesson1";
 
 test.skip("Lesson 1, helloapi", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("helloapi");

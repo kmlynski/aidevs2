@@ -5,7 +5,7 @@ dotenv.config();
 
 export default defineConfig({
   testDir: "./tests",
-  reporter: "html",
+  reporter: [["html", { open: "never" }]],
   use: {
     trace: "off",
   },

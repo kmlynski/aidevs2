@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
-import Common from "../api/common";
+import Common from "../../api/common";
 import {
   AnswerResponse,
   TaskResponse,
   TokenResponse,
-} from "../interfaces/Lesson1";
-import ApiOpenAI from "../api/apiOpenai";
+} from "../../interfaces/Lesson1";
+import ApiOpenAI from "../../api/apiOpenai";
 
 test.skip("Lesson 4, moderation", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("moderation");
