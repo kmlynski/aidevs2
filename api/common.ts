@@ -1,9 +1,9 @@
-import axios from "./axiosInterceptor";
+import axios from "../axiosInterceptor";
 import {
   AnswerResponse,
   TaskResponse,
   TokenResponse,
-} from "./interfaces/Lesson1";
+} from "../interfaces/Lesson1";
 
 export default class Common {
   static async getToken(taskname: string): Promise<string> {
@@ -27,7 +27,7 @@ export default class Common {
 
   static async sendAnswer(
     token: string,
-    answerText: string
+    answerText: any
   ): Promise<AnswerResponse> {
     const response = await axios.post<AnswerResponse>(
       `${process.env.AI_DEVS_API_BASE_URL}/answer/${token}`,

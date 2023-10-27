@@ -7,7 +7,8 @@ export interface TokenResponse {
 export interface TaskResponse {
   code: number;
   msg: string;
-  cookie: string;
+  cookie?: string;
+  input?: any;
 }
 
 export interface AnswerResponse {
