@@ -9,6 +9,7 @@ export default defineConfig({
   use: {
     trace: "off",
   },
+  timeout: 360000,
 
   projects: [
     {

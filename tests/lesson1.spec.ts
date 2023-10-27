@@ -6,7 +6,7 @@ import {
   TokenResponse,
 } from "../interfaces/Lesson1";
 
-test("Lesson 1, helloapi", async ({}) => {
+test.skip("Lesson 1, helloapi", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("helloapi");
   const task: TaskResponse = await Common.getTask(token);
   const result: AnswerResponse = await Common.sendAnswer(token, task.cookie!);

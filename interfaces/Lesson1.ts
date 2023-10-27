@@ -9,6 +9,7 @@ export interface TaskResponse {
   msg: string;
   cookie?: string;
   input?: any;
+  blog?: any;
 }
 
 export interface AnswerResponse {

@@ -7,7 +7,7 @@ import {
 } from "../interfaces/Lesson1";
 import ApiOpenAI from "../api/apiOpenai";
 
-test("Lesson 4, moderation", async ({}) => {
+test.skip("Lesson 4, moderation", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("moderation");
   const task: TaskResponse = await Common.getTask(token);
   const testData = task.input;
@@ -16,6 +16,17 @@ test("Lesson 4, moderation", async ({}) => {
     output.push(await ApiOpenAI.checkIfSentenceIsOk(testData[i]));
   console.log(output);
   const result: AnswerResponse = await Common.sendAnswer(token, output);
+  expect(result.code).toBe(0);
+  expect(result.msg).toBe("OK");
+  expect(result.note).toBe("CORRECT");
+});
+
+test.skip("Lesson 4, blogger", async ({}) => {
+  const token: TokenResponse["token"] = await Common.getToken("blogger");
+  const task: TaskResponse = await Common.getTask(token);
+  const blogRules = task.blog;
+  let blogPost = await ApiOpenAI.getPizzaRecipeBlogPost(blogRules);
+  const result: AnswerResponse = await Common.sendAnswer(token, blogPost);
   expect(result.code).toBe(0);
   expect(result.msg).toBe("OK");
   expect(result.note).toBe("CORRECT");
