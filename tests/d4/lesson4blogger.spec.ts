@@ -33,7 +33,7 @@ const openAiAPI = async (task) => {
   return response.choices[0].message.content;
 };
 
-test.skip("Lesson 4X, blogger - alternative way ", async ({}) => {
+test.skip("Lesson 4.1, blogger - alternative way ", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("blogger");
   const task: TaskResponse = await Common.getTask(token);
   const answer = await openAiAPI(task);

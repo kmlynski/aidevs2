@@ -18,7 +18,7 @@ const openAiAPI = async (task) => {
   return answer;
 };
 
-test.skip("Lesson 4X, moderation - alternative way ", async ({}) => {
+test.skip("Lesson4.1, moderation - alternative way ", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("moderation");
   const task: TaskResponse = await Common.getTask(token);
 

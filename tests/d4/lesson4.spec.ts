@@ -7,7 +7,7 @@ import {
 } from "../../interfaces/Lesson1";
 import ApiOpenAI from "../../api/apiOpenai";
 
-test.skip("Lesson 4, moderation", async ({}) => {
+test.skip("Lesson4, moderation", async () => {
   const token: TokenResponse["token"] = await Common.getToken("moderation");
   const task: TaskResponse = await Common.getTask(token);
   const testData = task.input;
@@ -21,7 +21,7 @@ test.skip("Lesson 4, moderation", async ({}) => {
   expect(result.note).toBe("CORRECT");
 });
 
-test.skip("Lesson 4, blogger", async ({}) => {
+test.skip("Lesson4, blogger", async () => {
   const token: TokenResponse["token"] = await Common.getToken("blogger");
   const task: TaskResponse = await Common.getTask(token);
   const blogRules = task.blog;

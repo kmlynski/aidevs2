@@ -31,7 +31,7 @@ const openAiAPI = async (task) => {
   return response.choices[0].message.content;
 };
 
-test("Lesson 5, liar", async ({}) => {
+test.skip("Lesson 5, liar", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("liar");
   const task: TaskResponse = await Common.postTask(
     token,
