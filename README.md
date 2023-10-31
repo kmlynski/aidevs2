@@ -1,6 +1,7 @@
 # AI Devs 2
 
 Repo that uses Playwright test runner with TypeScript and axios for the second edition of [AI Devs](https://www.aidevs.pl/).
+
 AI_Devs is a 5-week hands-on course on combining Generative AI tools (specifically OpenAI models) with application logic and automation tools that connects directly to models via APIs, building tailored tools to increase the efficiency of everyday tasks
 
 ## Getting started
