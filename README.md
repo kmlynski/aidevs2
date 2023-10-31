@@ -1,15 +1,10 @@
-1. Add .env file with:
-2. npm i
-3. delete '.skip' near test that you'd like to run
-4. npm run <script_name> available in package.json (f.e npm run lesson1)
-
 # AI Devs 2
 
 Repo that uses Playwright test runner with TypeScript and axios for the second edition of [AI Devs](https://www.aidevs.pl/).
 
 ## Getting started
 
-# Install dependencies
+## Install dependencies
 
 ```bash
 npm i
@@ -19,6 +14,10 @@ npm i
 
 - AI_DEVS_API_KEY
 - AI_DEVS_API_BASE_URL
+
+# Delete .skip near the test that you'd like to run
+
+This step is required to not run several tests at once that would consume more tokens when it's not intended
 
 # Run tests
 
