@@ -6,7 +6,8 @@
     "lesson4": "npx playwright test --grep Lesson4",
     "lesson4.1": "npx playwright test --grep Lesson4.1",
     "lesson5": "npx playwright test --grep Lesson5",
-    "c02l02": "npx playwright test --grep C02L02"
+    "c02l02": "npx playwright test --grep C02L02",
+    "c02l03": "npx playwright test --grep C02L03"
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",
