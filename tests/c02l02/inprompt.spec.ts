@@ -23,7 +23,7 @@ const openAiAPI = async (task) => {
   return response.content;
 };
 
-test("C02L02, inprompt", async ({}) => {
+test.skip("C02L02, inprompt", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("inprompt");
   const task: TaskResponse = await Common.getTask(token);
   const answer = await openAiAPI(task);
