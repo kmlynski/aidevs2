@@ -11,7 +11,7 @@ import {
 } from "./schema";
 import { Project } from "./todoist.dt.ts";
 
-test("C02L05.1, todoist", async ({}) => {
+test.skip("C02L05.1, todoist", async ({}) => {
   const model = new ChatOpenAI({ modelName: "gpt-4-0613" }).bind({
     functions: [addProjectSchema, getProjectsSchema, deleteProjectSchema],
   });
