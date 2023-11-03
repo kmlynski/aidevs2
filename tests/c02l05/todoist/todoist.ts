@@ -11,12 +11,19 @@ const apiCall = async (endpoint = "/me", method = "GET", body = {}) => {
   return response.status === 204 ? true : await response.json();
 };
 
-export const addProject = async (name: string): Promise<Project> => {
-  const addedProject: Project = await apiCall("/projects", "POST", {
-    name: name,
-  });
+export const addProject = async (projects: Project[]): Promise<Project[]> => {
+  const promises = projects.map((project) =>
+    apiCall("/projects", "POST", {
+      name: project.name,
+    })
+  );
 
-  return addedProject;
+  const addedProjects = await Promise.all(promises);
+
+  return addedProjects.map((addedProject: any) => ({
+    name: addedProject.name,
+    id: addedProject.id,
+  }));
 };
 
 export const getProjects = async (): Promise<Project[]> => {
@@ -27,4 +34,17 @@ export const getProjects = async (): Promise<Project[]> => {
       name: project.name,
     };
   });
+};
+
+export const deleteProject = async (projects: Project[]) => {
+  const promises = projects.map((project) =>
+    apiCall(`/projects/${project.id}`, "DELETE")
+  );
+
+  const deleteProjects = await Promise.all(promises);
+
+  return deleteProjects.map((deleteProject) => ({
+    id: deleteProject.id,
+    name: deleteProject.name,
+  }));
 };

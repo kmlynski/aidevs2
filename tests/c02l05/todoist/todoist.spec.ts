@@ -1,19 +1,24 @@
-import { expect, test } from "@playwright/test";
+import { test } from "@playwright/test";
 
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { HumanMessage, SystemMessage } from "langchain/schema";
 import { currentDate, parseFunctionCall } from "./helper.ts";
-import { addProject, getProjects } from "./todoist.ts";
-import { addProjectSchema, getProjectsSchema } from "./schema";
+import { addProject, deleteProject, getProjects } from "./todoist.ts";
+import {
+  addProjectSchema,
+  deleteProjectSchema,
+  getProjectsSchema,
+} from "./schema";
 import { Project } from "./todoist.dt.ts";
 
 test("C02L05.1, todoist", async ({}) => {
   const model = new ChatOpenAI({ modelName: "gpt-4-0613" }).bind({
-    functions: [addProjectSchema, getProjectsSchema],
+    functions: [addProjectSchema, getProjectsSchema, deleteProjectSchema],
   });
   const tools = {
     addProject,
     getProjects,
+    deleteProject,
   };
   const act = async (query: string) => {
     console.log("User: ", query);
@@ -33,7 +38,7 @@ test("C02L05.1, todoist", async ({}) => {
 
     if (action) {
       console.log(`action: ${action.name}`);
-      response = await tools[action.name](action.args.name);
+      response = await tools[action.name](action.args.projects);
     } else {
       response = conversation.content;
     }
@@ -43,4 +48,5 @@ test("C02L05.1, todoist", async ({}) => {
 
   await act("I'm starting new course on eduweb on Monday , can you add it?");
   await act("Get my projects again.");
+  await act("Delete last project that you've added");
 });
