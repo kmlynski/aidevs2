@@ -9,7 +9,8 @@
     "c02l02": "npx playwright test --grep C02L02",
     "c02l03": "npx playwright test --grep C02L03",
     "c02l04": "npx playwright test --grep C02L04",
-    "c02l05": "npx playwright test --grep C02L05"
+    "c02l05": "npx playwright test --grep C02L05",
+    "c03l01": "npx playwright test --grep C03L01"
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",
