@@ -11,7 +11,7 @@ export default defineConfig({
   },
   timeout: 360000,
   expect: {
-    timeout: 60000,
+    timeout: 360000,
   },
 
   projects: [

@@ -11,6 +11,7 @@ export interface TaskResponse {
   input?: any;
   blog?: any;
   question?: string;
+  hint?: string;
 }
 
 export interface AnswerResponse {
