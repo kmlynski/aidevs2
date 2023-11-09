@@ -3,6 +3,7 @@ import Common from "../../api/common";
 import { AnswerResponse, TokenResponse } from "../../interfaces/Lesson1";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+//const jsonData = require("./archiwum.json");
 
 const openAiAPI = async () => {
   const COLLECTION_NAME = "ai_devs9";
