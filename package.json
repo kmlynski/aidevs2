@@ -23,6 +23,7 @@
   "version": "1.0.0",
   "main": "common.js",
   "dependencies": {
+    "@qdrant/js-client-rest": "^1.6.0",
     "acorn": "^8.10.0",
     "acorn-walk": "^8.2.0",
     "arg": "^4.1.3",
