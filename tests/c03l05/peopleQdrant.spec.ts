@@ -48,13 +48,3 @@ test.skip("C03L05, people - with qdrant", async ({}) => {
   expect(result.msg).toBe("OK");
   expect(result.note).toBe("CORRECT");
 });
-
-function extractSurnameFromQuestion(question: string) {
-  const quesionWords = question.split(" ");
-  return quesionWords[quesionWords.length - 1].slice(0, -1);
-}
-
-function extractNameFromQuestion(question: string) {
-  const quesionWords = question.split(" ");
-  return quesionWords[quesionWords.length - 2].slice(0, -1);
-}
