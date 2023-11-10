@@ -37,7 +37,7 @@ const openAiAPI = async (task) => {
   return search[0]!.payload!.content;
 };
 
-test.skip("C03L05, people - with qdrant", async ({}) => {
+test.skip("C03L05QDRANT, people - with qdrant", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("people");
   const task: TaskResponse = await Common.getTask(token);
 
