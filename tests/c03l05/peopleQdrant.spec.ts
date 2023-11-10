@@ -1,6 +1,5 @@
 import { expect, test } from "@playwright/test";
 import Common from "../../api/common";
-import OpenAI from "openai";
 import {
   AnswerResponse,
   TaskResponse,
