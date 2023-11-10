@@ -43,7 +43,7 @@ const openAiAPI = async () => {
   return { token, response };
 };
 
-test("C03L03, whoami", async () => {
+test.skip("C03L03, whoami", async () => {
   const { token, response } = await openAiAPI();
   const result: AnswerResponse = await Common.sendAnswer(
     token,

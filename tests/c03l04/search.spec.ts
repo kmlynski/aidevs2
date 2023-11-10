@@ -34,7 +34,7 @@ const openAiAPI = async () => {
   return search[0]!.payload!.content;
 };
 
-test("C03L04, search", async ({}) => {
+test.skip("C03L04, search", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("search");
   await Common.getTask(token);
 

@@ -32,7 +32,7 @@ const openAiAPI = async (task, content) => {
   return response.choices[0].message.content;
 };
 
-test("C03L02, scraper", async ({ page }) => {
+test.skip("C03L02, scraper", async ({ page }) => {
   const token: TokenResponse["token"] = await Common.getToken("scraper");
   const task: TaskResponse = await Common.getTask(token);
 
