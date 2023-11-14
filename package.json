@@ -16,7 +16,8 @@
     "c03l04": "npx playwright test --grep C03L04",
     "c03l05qdrant": "npx playwright test --grep C03L05QDRANT",
     "c03l05ai": "npx playwright test --grep C03L05AI",
-    "c04l01": "npx playwright test --grep C04L01"
+    "c04l01": "npx playwright test --grep C04L01",
+    "c04l02": "npx playwright test --grep C04L02"
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",
