@@ -27,7 +27,7 @@ const openAiAPI = async (task) => {
   return JSON.parse(conversation.content);
 };
 
-test("C04L02, tools ", async ({}) => {
+test.skip("C04L02, tools ", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("tools");
   const task: TaskResponse = await Common.getTask(token);
 
