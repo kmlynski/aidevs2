@@ -32,7 +32,7 @@ const openAiAPI = async (task) => {
   return response.content;
 };
 
-test.skip("C04L02, gnome", async ({}) => {
+test.skip("C04L03, gnome", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("gnome");
   const task: TaskResponse = await Common.getTask(token);
 
