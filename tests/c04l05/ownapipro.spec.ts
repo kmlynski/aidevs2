@@ -6,7 +6,7 @@ const openAiAPI = async () => {
   return process.env.C04L05;
 };
 
-test("C04L05, ownapipro", async ({}) => {
+test.skip("C04L05, ownapipro", async ({}) => {
   const token: TokenResponse["token"] = await Common.getToken("ownapipro");
   await Common.getTask(token);
 

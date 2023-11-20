@@ -12,6 +12,9 @@ export interface TaskResponse {
   blog?: any;
   question?: string;
   hint?: string;
+  service?: string;
+  image?: string;
+  text?: string;
 }
 
 export interface AnswerResponse {
