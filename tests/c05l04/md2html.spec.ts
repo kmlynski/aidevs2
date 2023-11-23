@@ -3,11 +3,11 @@ import Common from "../../api/common";
 import { AnswerResponse, TokenResponse } from "../../interfaces/Lesson1";
 
 const openAiAPI = async () => {
-  return process.env.C05L03;
+  return process.env.C05L04;
 };
 
-test.skip("C05L03, google", async ({}) => {
-  const token: TokenResponse["token"] = await Common.getToken("google");
+test("C05L04, md2html", async ({}) => {
+  const token: TokenResponse["token"] = await Common.getToken("md2html");
   await Common.getTask(token);
 
   const answer = await openAiAPI();
